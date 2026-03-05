@@ -357,8 +357,13 @@
 
       <article id="apply" class="apply">
         <h3 style="margin: 0;">Apply to ZeroHuman</h3>
-        <p style="margin: 0.5rem 0 0; color: #535353;">Replace form action with your intake endpoint.</p>
-        <form action="https://example.com/ae6/apply" method="post">
+        <p style="margin: 0.5rem 0 0; color: #535353;">Applications are delivered by email.</p>
+        <form action="https://formsubmit.co/justus@eapentechnology.com" method="post">
+          <input type="hidden" name="_subject" value="ZeroHuman Application Submission" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://justuseapen.github.io/zh-autonomy-ladder/?submitted=1#apply" />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <label>
             Name
             <input type="text" name="name" required />
