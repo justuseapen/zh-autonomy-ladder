@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZeroHuman Standard | Autonomous Enterprise Model</title>
+  <meta
+    name="description"
+    content="ZeroHuman Standard is the operating model for autonomous enterprises that are profitable, governable, resilient, and multi-generational."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f6f1;
+      --ink: #161616;
+      --muted: #505050;
+      --line: #cbc9be;
+      --panel: #fffef8;
+      --teal: #006d77;
+      --sand: #edb458;
+      --coral: #d94f30;
+      --mint: #2a9d8f;
+      --shadow: 0 18px 40px rgba(22, 22, 22, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Sora", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(237, 180, 88, 0.28), transparent 40%),
+        radial-gradient(circle at 92% 10%, rgba(42, 157, 143, 0.2), transparent 34%),
+        linear-gradient(180deg, #fefdf7 0%, #f6f6f1 45%, #f1efe6 100%);
+      min-height: 100vh;
+      line-height: 1.45;
+    }
+
+    .shell {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 2.2rem 0 4.5rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1rem;
+      padding: 1rem 0 0.8rem;
+      animation: fade-up 700ms ease both;
+    }
+
+    .chip {
+      display: inline-flex;
+      width: fit-content;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      padding: 0.3rem 0.75rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4.6rem);
+      line-height: 1.03;
+      max-width: 15ch;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 64ch;
+      color: #2f2f2f;
+      font-size: clamp(1rem, 1.9vw, 1.22rem);
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.35rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 0.7rem;
+      padding: 0.78rem 1.08rem;
+      transition: transform 170ms ease, box-shadow 170ms ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      color: #f8fffe;
+      background: linear-gradient(120deg, var(--teal), var(--mint));
+      box-shadow: 0 10px 24px rgba(0, 109, 119, 0.26);
+    }
+
+    .btn-ghost {
+      color: var(--ink);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .band {
+      margin-top: 1.9rem;
+      display: grid;
+      gap: 0.9rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      animation: fade-up 760ms ease both;
+    }
+
+    .panel h2,
+    .panel h3 {
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .panel p {
+      margin: 0.48rem 0 0;
+      color: var(--muted);
+    }
+
+    .kpis {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 0.9rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: 0.8rem;
+      padding: 0.65rem;
+      background: #fff;
+    }
+
+    .kpi strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--teal);
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .section-title {
+      margin: 2.8rem 0 0.8rem;
+      font-size: clamp(1.25rem, 2.7vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+
+    .levels {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .level {
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--sand);
+      border-radius: 0.95rem;
+      background: rgba(255, 255, 255, 0.82);
+      padding: 0.95rem;
+      animation: fade-up 760ms ease both;
+    }
+
+    .level h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .level p {
+      margin: 0.42rem 0 0;
+      color: var(--muted);
+    }
+
+    .rails {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .rail {
+      border: 1px solid var(--line);
+      border-radius: 0.95rem;
+      padding: 1rem;
+      background: #fff;
+    }
+
+    .rail h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .rail p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+    }
+
+    .cta-grid {
+      margin-top: 1.4rem;
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .apply {
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .apply form {
+      margin-top: 0.75rem;
+      display: grid;
+      gap: 0.68rem;
+    }
+
+    .apply label {
+      font-size: 0.93rem;
+      font-weight: 600;
+    }
+
+    .apply input,
+    .apply select,
+    .apply textarea {
+      margin-top: 0.35rem;
+      width: 100%;
+      border: 1px solid #d7d4c7;
+      border-radius: 0.62rem;
+      padding: 0.65rem 0.7rem;
+      font: inherit;
+      background: #fffdf8;
+    }
+
+    .apply textarea {
+      min-height: 106px;
+      resize: vertical;
+    }
+
+    .foot {
+      margin-top: 2rem;
+      color: #636363;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.82rem;
+    }
+
+    @media (min-width: 720px) {
+      .band { grid-template-columns: 1.2fr 0.8fr; }
+      .levels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .rails { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cta-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 1024px) {
+      .levels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="chip">ZeroHuman Standard</span>
+      <h1>Build Autonomous Enterprises That Actually Last</h1>
+      <p class="lede">
+        AE0-AE6 is the maturity model for teams building autonomous businesses that must stay solvent,
+        operate under policy, survive shocks, and compound into multi-generation venture networks.
+      </p>
+      <div class="actions">
+        <a href="#apply" class="btn btn-primary">Apply to ZeroHuman</a>
+        <a href="#levels" class="btn btn-ghost">View the Levels</a>
+      </div>
+    </section>
+
+    <section class="band">
+      <article class="panel">
+        <h2>What ZeroHuman Certifies</h2>
+        <p>
+          Not chatbot quality. Not benchmark scores. ZeroHuman certifies autonomous economic systems with proven
+          governance, resilience, and creator-aligned capital distribution.
+        </p>
+        <div class="kpis">
+          <div class="kpi"><strong>6+ months</strong><span>Full-stack cost coverage (AE4)</span></div>
+          <div class="kpi"><strong>3 months</strong><span>Minimum reserve discipline</span></div>
+          <div class="kpi"><strong>2 generations</strong><span>Autonomous offspring governance (AE6)</span></div>
+          <div class="kpi"><strong>100%</strong><span>Audit trace for consequential actions</span></div>
+        </div>
+      </article>
+      <article class="panel">
+        <h3>Who This Is For</h3>
+        <p>Founders, operators, researchers, and investors building production autonomous ventures.</p>
+        <p>Use AE levels to align product, finance, policy, and capital allocation decisions.</p>
+      </article>
+    </section>
+
+    <section id="levels">
+      <h2 class="section-title">AE0-AE6 Levels</h2>
+      <div class="levels">
+        <article class="level"><h3>AE0 Tool</h3><p>No agency. Human drives all meaningful decisions and actions.</p></article>
+        <article class="level"><h3>AE1 Assisted Operator</h3><p>Prompted execution of bounded tasks. No autonomous treasury rights.</p></article>
+        <article class="level"><h3>AE2 Conditional Agent</h3><p>Multi-step automation under hard spend caps, policy checks, and kill switch.</p></article>
+        <article class="level"><h3>AE3 Managed Business Unit</h3><p>Runs one full acquisition-to-support loop with sustained positive unit economics.</p></article>
+        <article class="level"><h3>AE4 Self-Sustaining Enterprise</h3><p>Covers compute, tooling, infra, and operations while funding reserves and creator tithe.</p></article>
+        <article class="level"><h3>AE5 Reproductive Enterprise</h3><p>Launches and governs offspring ventures while parent remains FCF-positive.</p></article>
+        <article class="level"><h3>AE6 Sovereign Network</h3><p>Multi-generation autonomous network survives severe disruptions and founder absence.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Promotion Gates</h2>
+      <div class="rails">
+        <article class="rail"><h3>Capability Gate</h3><p>Unattended workflows succeed inside the defined autonomy envelope.</p></article>
+        <article class="rail"><h3>Economics Gate</h3><p>Level-specific free-cash-flow and reserve thresholds hold for required duration.</p></article>
+        <article class="rail"><h3>Governance Gate</h3><p>Immutable logs, policy conformance, and incident closure SLAs are consistently met.</p></article>
+        <article class="rail"><h3>Resilience Gate</h3><p>Stress scenarios show recovery with documented postmortems and policy updates.</p></article>
+      </div>
+    </section>
+
+    <section class="cta-grid">
+      <article class="panel">
+        <h3>Network Principles</h3>
+        <p><strong>Profit before hype.</strong> <strong>Control before scale.</strong> <strong>Evidence before claims.</strong></p>
+        <p>
+          AE claims are only accepted with auditable packets: P&L records, policy logs, incident reports,
+          and stress recovery artifacts.
+        </p>
+      </article>
+
+      <article id="apply" class="apply">
+        <h3 style="margin: 0;">Apply to ZeroHuman</h3>
+        <p style="margin: 0.5rem 0 0; color: #535353;">Replace form action with your intake endpoint.</p>
+        <form action="https://example.com/ae6/apply" method="post">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Current AE Level
+            <select name="current_level" required>
+              <option value="">Select level</option>
+              <option>AE0</option>
+              <option>AE1</option>
+              <option>AE2</option>
+              <option>AE3</option>
+              <option>AE4</option>
+              <option>AE5</option>
+              <option>AE6</option>
+            </select>
+          </label>
+          <label>
+            Venture Description
+            <textarea name="venture_description" required></textarea>
+          </label>
+          <label>
+            Biggest Promotion Blocker
+            <textarea name="blocker" required></textarea>
+          </label>
+          <button class="btn btn-primary" type="submit">Submit Application</button>
+        </form>
+      </article>
+    </section>
+
+    <p class="foot">ZeroHuman Standard | Autonomous Enterprise Model | March 2026</p>
+  </main>
+</body>
+</html>
